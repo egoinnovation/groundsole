@@ -24,9 +24,9 @@ warnings.filterwarnings("ignore", message=r".*fp16.*fp32.*")
 # Pfad-Definitionen (dynamisch relativ zum Skriptort)
 WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW_CHATS_DIR = os.path.join(WORKSPACE_DIR, "00_MEMORY", "transcripts")
-VECTORS_DIR = os.path.join(WORKSPACE_DIR, "00_MEMORY", "emanuel_vectors")
+VECTORS_DIR = os.path.join(WORKSPACE_DIR, "00_MEMORY", "memory_vectors")
 os.makedirs(VECTORS_DIR, exist_ok=True)
-DB_PATH = os.path.join(VECTORS_DIR, "emanuel_memory_active.db")
+DB_PATH = os.path.join(VECTORS_DIR, "groundsole_memory.db")
 BUFFER_DB_PATH = os.path.join(VECTORS_DIR, "memory_buffer.db")
 
 # Warnhinweis-Datei: wird hinterlegt, wenn keine bekannte Harness-Umgebung gefunden wird
@@ -281,7 +281,7 @@ def index_corpus(raw_dir: str = RAW_CHATS_DIR, db_path: str = DB_PATH, limit: Op
     # Exklusive ISN-Betriebs-Transkripte (Pfad B: groundsole_memory.db) aus der Haupt-DB ausschließen
     isn_db_path = os.path.join(WORKSPACE_DIR, "00_MEMORY", "groundsole_memory.db")
     isn_exclusive_files = set()
-    if os.path.basename(db_path) == "emanuel_memory_active.db" and os.path.exists(isn_db_path):
+    if os.path.basename(db_path) == "groundsole_memory.db" and os.path.exists(isn_db_path):
         try:
             isn_conn = sqlite3.connect(isn_db_path)
             isn_cur = isn_conn.cursor()
