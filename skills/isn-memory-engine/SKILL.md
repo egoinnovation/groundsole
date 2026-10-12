@@ -1,11 +1,11 @@
 ---
 name: isn-memory-engine
-description: Lokales Vektorgedächtnis (isn_vectors.db mit Jina-Embeddings) auf dem persölichen OneDrive-Spoke verwalten.
+description: Lokales Vektorgedächtnis (groundsole_memory.db mit Jina-Embeddings) auf dem persölichen OneDrive-Spoke verwalten.
 ---
 
 # ISN Memory Engine
 
-Verwaltet die lokale SQLite-Vektordatenbank (`isn_vectors.db`) auf dem persönlichen Spoke des Nutzers (`C:\Users\<user>\OneDrive...\ISN-AI\00_MEMORY\isn_vectors.db`).
+Verwaltet die lokale SQLite-Vektordatenbank (`groundsole_memory.db`) auf dem persönlichen Spoke des Nutzers (`C:\Users\<user>\OneDrive...\ISN-AI\00_MEMORY\groundsole_memory.db`).
 
 ## Kernregeln:
 1. **Strikte lokale Isolation:** Die SQLite-Datenbank liegt **niemals** auf SharePoint, sondern ausschließlich auf dem persönlichen OneDrive-Spoke.

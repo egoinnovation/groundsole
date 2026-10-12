@@ -16,7 +16,7 @@ It enforces a strict separation between **Personal Workstation Autonomy (Spoke)*
 
 1. **Spoke (Personal Workstation / OneDrive):**  
    * Location: `C:\Users\<username>\OneDrive - isn - innovation service network\ISN-AI\`
-   * Function: Private workspace, personal notes, draft documents, and local SQLite vector database (`isn_vectors.db`) powered by Jina Embeddings.
+   * Function: Private workspace, personal notes, draft documents, and local SQLite vector database (`groundsole_memory.db`) powered by Jina Embeddings.
 2. **Hub (Shared SharePoint):**  
    * Location: `Sharepoint - Dokumente\Wissensdatenbank\AI_HUB\`
    * Function: Authoritative, curated team knowledge stored exclusively in plaintext Markdown (`00` to `05` dossiers, `AGENTS.md`, `TEAM_FEED.md`). No SQLite databases allowed on SharePoint to prevent sync conflicts.

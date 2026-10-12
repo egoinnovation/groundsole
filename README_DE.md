@@ -11,7 +11,7 @@ Groundsole ISN verbindet die Freiheit der persönlichen Arbeitsweise am eigenen 
 
 1. **Der Spoke (Persönlicher Laptop & OneDrive):**  
    * **Pfad:** `C:\Users\<username>\OneDrive - isn - innovation service network\ISN-AI\`
-   * **Funktion:** Geschützter, privater Arbeitsbereich. Hier liegen persönliche Gedanken, Entwürfe, transkribierte Notizen und die **lokale Vektordatenbank (`isn_vectors.db`)** mit Jina-Embeddings.
+   * **Funktion:** Geschützter, privater Arbeitsbereich. Hier liegen persönliche Gedanken, Entwürfe, transkribierte Notizen und die **lokale Vektordatenbank (`groundsole_memory.db`)** mit Jina-Embeddings.
 2. **Der Hub (Geteilter SharePoint):**  
    * **Pfad:** `Sharepoint - Dokumente\Wissensdatenbank\AI_HUB\`
    * **Funktion:** Geteiltes Firmen-Gedächtnis. Besteht **ausschließlich aus Plaintext-Markdown-Dateien** (`00` bis `05` Dossiers, `AGENTS.md`, `TEAM_FEED.md`).

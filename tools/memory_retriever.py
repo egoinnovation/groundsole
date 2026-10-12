@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ISN Local Vector Memory Retriever
-Führt semantische Suchen in der lokalen isn_vectors.db durch.
+Führt semantische Suchen in der lokalen groundsole_memory.db durch.
 """
 
 import sqlite3
@@ -23,7 +23,7 @@ def search(db_path, query):
 
 if __name__ == "__main__":
     import os
-    db_path = sys.argv[1] if len(sys.argv) > 1 else "isn_vectors.db"
+    db_path = sys.argv[1] if len(sys.argv) > 1 else "groundsole_memory.db"
     query = sys.argv[2] if len(sys.argv) > 2 else ""
     if query:
         search(db_path, query)

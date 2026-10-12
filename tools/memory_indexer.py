@@ -278,8 +278,8 @@ def index_corpus(raw_dir: str = RAW_CHATS_DIR, db_path: str = DB_PATH, limit: Op
             except Exception:
                 pass
 
-    # Exklusive ISN-Betriebs-Transkripte (Pfad B: isn_vectors.db) aus der Haupt-DB ausschließen
-    isn_db_path = os.path.join(WORKSPACE_DIR, "00_MEMORY", "isn_vectors.db")
+    # Exklusive ISN-Betriebs-Transkripte (Pfad B: groundsole_memory.db) aus der Haupt-DB ausschließen
+    isn_db_path = os.path.join(WORKSPACE_DIR, "00_MEMORY", "groundsole_memory.db")
     isn_exclusive_files = set()
     if os.path.basename(db_path) == "emanuel_memory_active.db" and os.path.exists(isn_db_path):
         try:
