@@ -69,6 +69,20 @@ def get_latest_session(cursor: sqlite3.Cursor, session_id: Optional[str] = None)
         raise ValueError(f"Keine passende Session in state.db gefunden (ID: {session_id})")
     return row
 
+
+def demote_headings(text: str) -> str:
+    """Demotes H1/H2 inside message bodies to H3+ to preserve strict transcript hierarchy."""
+    lines = []
+    for line in text.splitlines():
+        if re.match(r'^#\s+', line):
+            line = re.sub(r'^#\s+', '### ', line)
+        elif re.match(r'^##\s+', line):
+            line = re.sub(r'^##\s+', '### ', line)
+        elif re.match(r'^###\s+', line):
+            line = re.sub(r'^###\s+', '#### ', line)
+        lines.append(line)
+    return "\n".join(lines)
+
 def sanitize_content(text: str) -> str:
     """Bereinigt Telemetrie und maskiert Geheimnisse."""
     text = re.sub(r'<CONTEXT_SUMMARY>[\s\S]*?</CONTEXT_SUMMARY>', '', text)
@@ -80,7 +94,7 @@ def sanitize_content(text: str) -> str:
     text = re.sub(r'ghp_[A-Za-z0-9_]{36,}', '[IN_SECRET_MANAGER_SAVED]', text)
     text = re.sub(r'AIzaSy[A-Za-z0-9_-]{33}', '[IN_SECRET_MANAGER_SAVED]', text)
     text = re.sub(r'sk-[A-Za-z0-9]{32,}', '[IN_SECRET_MANAGER_SAVED]', text)
-    return text.strip()
+    return demote_headings(text.strip())
 
 def export_session(
     session_id: Optional[str] = None,

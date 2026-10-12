@@ -54,14 +54,14 @@ def sanitize_user_text(text):
     text = re.sub(r'ghp_[A-Za-z0-9_]{36,}', '[IN_SECRET_MANAGER_SAVED]', text)
     text = re.sub(r'AIzaSy[A-Za-z0-9_-]{33}', '[IN_SECRET_MANAGER_SAVED]', text)
     text = re.sub(r'sk-[A-Za-z0-9]{32,}', '[IN_SECRET_MANAGER_SAVED]', text)
-    return text.strip()
+    return demote_headings(text.strip())
 
 def sanitize_assistant_text(text):
     text = re.sub(r'<CONTEXT_SUMMARY>[\s\S]*?</CONTEXT_SUMMARY>', '', text)
     text = re.sub(r'ghp_[A-Za-z0-9_]{36,}', '[IN_SECRET_MANAGER_SAVED]', text)
     text = re.sub(r'AIzaSy[A-Za-z0-9_-]{33}', '[IN_SECRET_MANAGER_SAVED]', text)
     text = re.sub(r'sk-[A-Za-z0-9]{32,}', '[IN_SECRET_MANAGER_SAVED]', text)
-    return text.strip()
+    return demote_headings(text.strip())
 
 def export_antigravity_session(transcript_path, output_transcript_path=None, title=None, user_speaker="User"):
     if not os.path.exists(transcript_path):
