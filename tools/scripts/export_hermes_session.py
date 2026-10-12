@@ -91,6 +91,10 @@ def export_session(
 ):
     db_path = os.path.expanduser("~/.hermes/state.db")
     if not os.path.exists(db_path):
+        local_app = os.environ.get("LOCALAPPDATA", "")
+        if local_app:
+            db_path = os.path.join(local_app, "hermes", "state.db")
+    if not os.path.exists(db_path):
         raise FileNotFoundError(f"Hermes state.db nicht gefunden unter {db_path}")
 
     conn = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True, timeout=10)
